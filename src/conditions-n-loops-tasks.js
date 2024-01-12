@@ -387,15 +387,21 @@ function rotateMatrix(/* matrix */) {
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
 function sortByAsc(arr) {
-  const array = arr;
-  for (let j = 0; j < array.length - 1; j += 1) {
-    if (array[j] > array[j + 1]) {
-      const temp = array[j];
-      array[j] = array[j + 1];
-      array[j + 1] = temp;
+  const numArray = arr;
+  for (let i = 0; i < numArray.length - 1; i = 1 + i) {
+    let min = i;
+    for (let j = i + 1; j < numArray.length; j = 1 + j) {
+      if (numArray[j] < numArray[min]) {
+        min = j;
+      }
+    }
+    if (min !== i) {
+      const target = numArray[i];
+      numArray[i] = numArray[min];
+      numArray[min] = target;
     }
   }
-  return array;
+  return numArray;
 }
 
 /**
